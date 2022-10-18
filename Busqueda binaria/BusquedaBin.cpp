@@ -1,17 +1,24 @@
 #include <iostream>
 #include <conio.h>
 
+#define GetSize(array_enteros) (sizeof(array_enteros)/sizeof(*(array_enteros)))
+
+
 int main()
 {
     int nums[] = {10, 18, 23, 29, 32, 40, 47, 51, 63};
     int clave,bajo,alto,mitad,valorMitad;
-    char band = 'F';
+   
+    
 
     std::cout << "Ingrese numero a buscar: ";
     std::cin >> clave;
     //Algoritmo para la busqueda
+   
+    
+    
     bajo = 0;
-    alto = 9;
+    alto = GetSize(nums);
     while (bajo <= alto)
     {
         
@@ -32,7 +39,7 @@ int main()
             bajo = mitad;
             mitad = ((bajo + alto)/2);
         }
-    }
+    }   
+    
     return 0;
-
 }
