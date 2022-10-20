@@ -23,34 +23,6 @@ int main()
     {
         std::cout << "Se encontro el numero: " << clave << " en la posicion: " << busquedaBin(nums,clave);
     }
-    
-
-    
-    #if 0
-    bajo = 0;
-    alto = GetSize(nums);
-    while (bajo <= alto)
-    {
-        
-        mitad = ((bajo + alto)/2);
-
-        if (nums[mitad] == clave)
-        {
-            std::cout << "Ha encontrado el numero: " << nums[mitad] << " En la Posicion " << mitad << '\n';
-            break;
-        }
-        if (nums[mitad] > clave)
-        {
-            alto = mitad;
-            mitad = ((bajo + alto)/2);
-        }
-        if(nums[mitad] < clave)
-        {
-            bajo = mitad;
-            mitad = ((bajo + alto)/2);
-        }
-    }   
-    #endif 
     return 0;
 }
 
@@ -80,4 +52,3 @@ int busquedaBin(int num[], int clave)
     }
     return -1;
 }
-
