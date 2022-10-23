@@ -1,28 +1,59 @@
 #include <iostream>
 #include <conio.h>
+#include <algorithm>
 
 #define GetSize(array_enteros) (sizeof(array_enteros)/sizeof(*(array_enteros)))
 int busquedaBin(int num[], int clave);
+void ordenar (int arreglo[]);
+void busquedaSec(int num[], int clave);
 
 int main()
 {
-    int nums[] = {10, 18, 23, 29, 32, 40, 47, 51, 63};
-    int clave{};
-   
     
+    int nums[200] = {};
+    int clave{}, opc;
 
-    std::cout << "Ingrese numero a buscar: ";
-    std::cin >> clave;
-    //Algoritmo para la busqueda
+     for (int j = 0; j <= 200; j++)     // Ciclo que rellena los espacios de numeros aleatorios
+    {
+        nums[j] = 1 + rand( )% 500;
+    }
+    ordenar(nums);                      // Funcion que ordena los elementos dentro del arreglo
     
-    if (busquedaBin(nums,clave) == -1 )
-    {
-        std::cout << "No se encontro el numero dentro del arreglo";
+    std::cout << "Bienvenido al programa: \n";
+    do{ 
+    std::cout << "Que desea realizar? \n";
+    std::cout << "1.- Busqueda lineal: \n 2.- Busqueda binaria: \n";
+    std::cin >> opc;
+
+        if (opc == 1)
+        {
+            std::cout << "Ingrese numero a buscar: ";
+            std::cin >> clave;
+            //Algoritmo para la busqueda
+
+            if (busquedaBin(nums,clave) == -1 )
+            {
+                std::cout << "No se encontro el numero dentro del arreglo";
+            }
+            else
+            {
+                std::cout << "Se encontro el numero: " << clave << " en la posicion: " << busquedaBin(nums,clave);
+            }
+        }
+        else if (opc == 2)
+        {
+            std::cout << "Ingrese numero a buscar: ";
+            std::cin >> clave;
+            busquedaSec(nums,clave);
+        }
+        else
+        {
+        std::cout << "Ingrese una opcion valida:";
+        }
     }
-    else
-    {
-        std::cout << "Se encontro el numero: " << clave << " en la posicion: " << busquedaBin(nums,clave);
-    }
+    while (opc != 1 && opc != 2);
+    
+ 
     return 0;
 }
 
@@ -51,4 +82,34 @@ int busquedaBin(int num[], int clave)
         }
     }
     return -1;
+}
+
+void busquedaSec(int num[], int clave)
+{
+    for (int i = 0; i <= 200; i++)
+    {
+        if(clave == num[i])
+        {
+            std::cout << "Se encontro el numero! " << num[i] << "En la posicion: " << i;
+            break;
+        }
+        else
+        {
+            std::cout << "No se encontro el numero ";
+        }
+    }
+    
+}
+
+void ordenar (int arreglo[]) 
+{
+   int i, j, temporal;
+ 
+   for (i = 200 - 1; i > 0; i--)
+      for (j = 0; j < i; j++)
+         if (arreglo[j] > arreglo[j + 1]) {
+            temporal = arreglo[j];
+            arreglo[j] = arreglo[j + 1];
+            arreglo[j + 1] = temporal;
+         }
 }
