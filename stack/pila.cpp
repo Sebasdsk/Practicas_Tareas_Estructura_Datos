@@ -71,6 +71,14 @@ void mostrar()
     {
         std::cout << "Pila Vacia: ";
     }
+    else if (lleno())
+    {
+        std::cout << "La pila esta llena \nEstos son los datos: \n";
+        for(int i = 0; i <= pila.tope; i++)
+        {
+            std::cout << "Espacio ["<<i<<"]: " <<pila.elemento[i] << std::endl;
+        }
+    }
     else
     {
         for(int i = 0; i <= pila.tope; i++)
@@ -116,13 +124,6 @@ int main()
         }
     }while (opc != 4);
     system("PAUSE");
-    return 0;
-    
-    
-
-    
-
-    
-
+    return 0; 
 
 }
